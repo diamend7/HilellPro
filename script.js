@@ -1,24 +1,24 @@
 //Homework 4.1
-// const name = prompt("ім'я користувача");
-// console.log("Hello," + name + "! How are you?");
+const name = prompt("ім'я користувача");
+console.log("Hello," + name + "! How are you?");
 
 //Homework 4.2
-// const num = prompt("Введіть 3-значне число");
+const num = prompt("Введіть 3-значне число");
 
-// const num1 = num[0];
-// const num2 = num[1];
-// const num3 = num[2];
-// if (isNaN(+num) || num.length !== 3) {
-//   console.log("введіть 3-значне число");
-// } else {
-//   if (num1 === num2 && num2 === num3) {
-//     console.log("усі цифри однакові");
-//   } else if (num1 === num2 || num1 === num3 || num2 === num3) {
-//     console.log("є однакові цифри");
-//   } else {
-//     console.log("цифри різні");
-//   }
-// }
+const num1 = num[0];
+const num2 = num[1];
+const num3 = num[2];
+if (isNaN(+num) || num.length !== 3) {
+  console.log("введіть 3-значне число");
+} else {
+  if (num1 === num2 && num2 === num3) {
+    console.log("усі цифри однакові");
+  } else if (num1 === num2 || num1 === num3 || num2 === num3) {
+    console.log("є однакові цифри");
+  } else {
+    console.log("цифри різні");
+  }
+}
 
 //Homework 4.3
 
