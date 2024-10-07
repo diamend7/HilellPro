@@ -12,10 +12,10 @@ for (i = 10; i <= 100; i += 10) {
 }
 
 //homework 5.3
-const N = +prompt(`Введіть ціле число(1-100):`);
-for (i = 2; i <= N; i++) {
+const sqrtNumber = +prompt(`Введіть ціле число(1-100):`);
+for (i = 1; i <= sqrtNumber; i++) {
   let result = i * i;
-  if (result > N) {
+  if (result > sqrtNumber) {
     break;
   } else {
     console.log(`${i}(${result})`);
