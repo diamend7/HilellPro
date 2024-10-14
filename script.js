@@ -28,7 +28,7 @@ console.log(getTwoSum(2)(5));
 function askNumber() {
   for (i = 0; i <= 10; i++) {
     const number = prompt(`Введіть число більше 100`);
-    if (number > 100 || i === 10) {
+    if (number > 100) {
       return number;
     } else {
       console.log(`Введіть число більше 100`);
