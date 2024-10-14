@@ -16,7 +16,7 @@ console.log(numberPlus(8));
 
 //Homework 7.2
 
-function getTwoSum(firstNum = 0) {
+function getTwoSum(firstNum) {
   return (secondNum) => {
     return firstNum * secondNum;
   };
