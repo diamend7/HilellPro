@@ -2,8 +2,7 @@
 let link;
 function getLink() {
   let linkValue = prompt(`enter a link`);
-
-  return (link = linkValue);
+  link = linkValue;
 }
 function goToLink() {
   location.href = link;
@@ -13,7 +12,6 @@ function goToLink() {
 
 const sectorButton = document.querySelector(`#buttonMain`);
 sectorButton.addEventListener(`click`, function (e) {
-  e.defaultPrevented;
   console.log(e.target.textContent);
 });
 
