@@ -1,1 +1,21 @@
-/*# sourceMappingURL=stylish.css.map */
+button {
+  font-size: 32px;
+}
+
+form {
+  font-size: 32px;
+}
+form input {
+  font-size: 24px;
+}
+form button {
+  font-size: 24px;
+}
+form li p {
+  margin: 0;
+  padding-right: 10px;
+}
+form li p,
+form li button {
+  display: inline-block;
+}/*# sourceMappingURL=stylish.css.map */

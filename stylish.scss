@@ -1,0 +1,23 @@
+button {
+  font-size: 32px;
+}
+form {
+  font-size: 32px;
+  input {
+    font-size: 24px;
+  }
+  button {
+    font-size: 24px;
+  }
+  li {
+    p {
+      margin: 0;
+      padding-right: 10px;
+    }
+
+    p,
+    button {
+      display: inline-block;
+    }
+  }
+}
