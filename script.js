@@ -36,6 +36,6 @@ addButton.addEventListener(`click`, function (e) {
 });
 function removeItem(event) {
   const currentLi = event.target;
-  let mainLi = currentLi.closest(`li`);
+  const mainLi = currentLi.closest(`li`);
   mainLi.remove();
 }
