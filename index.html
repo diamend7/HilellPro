@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="dist/stylish.css" />
   </head>
   <body>
-    <script src="script.js"></script>
+    <form>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <p id="nameError" class="error"></p>
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <input type="text" id="message">
+        <p id="messageError" class="error"></p>
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <input type="number" id="phone">
+        <p id="phoneError" class="error"></p>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <p id="emailError" class="error"></p>
+      </div>
+      <button type="submit" onclick="validateForm(event)">Submit</button>
+    </form>
+    <script src="script.js" ></script>
   </body>
 </html>
