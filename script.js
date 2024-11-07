@@ -47,7 +47,7 @@ submit.addEventListener(`click`, function(event){
     }
  
 });
-
+//напишіть під завданням чому не бажано робити через onlick
 function nameErrorFunc(){ nameError.textContent = ``};
 function messageErrorFunc(){ messageError.textContent = ``};
 function phoneErrorFunc(){ phoneError.textContent = ``};
