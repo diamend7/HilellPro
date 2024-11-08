@@ -10,15 +10,15 @@ function setActiveSlide(index){
     });
 
     if(currentImg === 0){
-        prevButton.setAttribute(`disabled`, true);
+        prevButton.setAttribute(`style`, 'visibility:hidden;');
     } else {
-        prevButton.removeAttribute(`disabled`);
+        prevButton.setAttribute(`style`, 'visibility:visible');
     }
 
     if(currentImg === slidesImages.length - 1){
-        nextButton.setAttribute(`disabled`, true);
+        nextButton.setAttribute(`style`, 'visibility:hidden;');
     } else {
-        nextButton.removeAttribute(`disabled`);
+        nextButton.setAttribute(`style`, 'visibility:visible');
     }
 
     setActiveDot(index);
