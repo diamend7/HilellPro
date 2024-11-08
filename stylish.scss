@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+}
+
+#slider{
+    
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    button{
+        font-size: 20px;
+        cursor: pointer;
+    }
+    img{
+    display: none;
+    width: 500px;
+    height: 300px;
+    border: 1px black solid;
+    }
+    .activeImage{
+        display: block;
+    }
+    
+}
+#dots{
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+    .dot{
+        padding: 5px;
+        cursor: pointer;
+    }
+    .activeDot{
+        color:red;
+    }
+}

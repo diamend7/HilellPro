@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+}
+
+#slider {
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+#slider button {
+  font-size: 20px;
+  cursor: pointer;
+}
+#slider img {
+  display: none;
+  width: 500px;
+  height: 300px;
+  border: 1px black solid;
+}
+#slider .activeImage {
+  display: block;
+}
+
+#dots {
+  justify-content: center;
+  display: flex;
+  margin-top: 10px;
+}
+#dots .dot {
+  padding: 5px;
+  cursor: pointer;
+}
+#dots .activeDot {
+  color: red;
+}/*# sourceMappingURL=stylish.css.map */
