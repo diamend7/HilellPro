@@ -4,29 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="dist/stylish.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="stylish.css" />
+    
   </head>
   <body>
-    <!-- Homework 12.1 -->
-    <button onclick="getLink()">Enter link</button>
-    <button onclick="goToLink()">Go to link</button>
-    <!-- Homework 12.2 -->
-    <br />
-    <br />
-    <div id="buttonMain">
-      <button>Button 1</button>
-      <button>Button 2</button>
-      <button>Button 3</button>
-    </div>
-    <!-- Homework 12.3 -->
-    <br />
-    <br />
     <form>
       <input type="text" placeholder="Додати нове завдання" id="inputTask" />
       <button id="addButton" type="button">Додати</button>
       <ul id="tasksTree"></ul>
     </form>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Опис завдання</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    
   </body>
 </html>

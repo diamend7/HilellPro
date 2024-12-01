@@ -1,39 +1,33 @@
-//Homework 12.1
-let link;
-function getLink() {
-  let linkValue = prompt(`enter a link`);
-  link = linkValue;
-}
-function goToLink() {
-  location.href = link;
-}
+$(document).ready(function () {
+    const $addButton = $('#addButton');
+    const $inputTask = $('#inputTask');
+    const $tasksTree = $('#tasksTree');
 
-//Homework 12.2
+    const $exampleModal = $('#exampleModal');
+    const $modaltext = $('.modal-body')
 
-const sectorButton = document.querySelector(`#buttonMain`);
-sectorButton.addEventListener(`click`, function (e) {
-  console.log(e.target.textContent);
+    $addButton.on('click', function () {
+        const $newTask = $('<li></li>');
+        const $newTaskText = $('<p></p>')
+            .text($inputTask.val())
+            .on('click', function () {
+                $modaltext.text($(this).text());
+                $exampleModal.modal('show');
+            });
+        const $newTaskButton = $('<button></button>')
+            .attr('type', 'button')
+            .text('Видалити')
+            .on('click', function () {
+                $(this).parent().remove(); 
+            });
+
+        $newTask.append($newTaskText).append($newTaskButton);
+        $tasksTree.append($newTask);
+    });
 });
+   
+    
 
-//Homework 12.3
 
-const addButton = document.querySelector(`#addButton`);
-const inputTask = document.querySelector(`#inputTask`);
-const tasksTree = document.querySelector(`#tasksTree`);
-addButton.addEventListener(`click`, function (e) {
-  const newTask = document.createElement(`li`);
-  const newTaskText = document.createElement(`p`);
-  const newTaskButton = document.createElement("button");
-  newTaskButton.setAttribute(`type`, `button`);
-  newTaskButton.setAttribute(`onclick`, `removeItem(event)`);
-  newTaskButton.innerText = `Видалити`;
-  newTaskText.innerText = inputTask.value;
-  tasksTree.appendChild(newTask);
-  newTask.appendChild(newTaskText);
-  newTask.appendChild(newTaskButton);
-});
-function removeItem(event) {
-  const currentLi = event.target;
-  const mainLi = currentLi.closest(`li`);
-  mainLi.remove();
-}
+
+   
