@@ -1,3 +1,7 @@
+import * as bootstrap from 'bootstrap';
+import $ from 'jquery';
+import '../stylish.scss';
+
 $(document).ready(function () {
     const $addButton = $('#addButton');
     const $inputTask = $('#inputTask');

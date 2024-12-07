@@ -4,17 +4,30 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0"
+    "@babel/preset-env": "^7.26.0",
+    "autoprefixer": "^10.4.20",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.82.0",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   }
 }
