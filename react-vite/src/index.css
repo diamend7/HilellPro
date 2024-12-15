@@ -1,0 +1,43 @@
+@import "bootstrap/dist/css/bootstrap.css";
+
+* {
+  box-sizing: border-box;
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex: 1 1 auto;
+  line-height: 32px;
+  border: 0.5px solid rgba(161, 161, 161, 0.39);
+  border-radius: 5px;
+}
+#apiLink,
+#input {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#input {
+  border: none;
+  border-left: 0.5px solid rgba(161, 161, 161, 0.39);
+  width: 100%;
+  min-width: 50px;
+}
+#input:focus {
+  outline: none;
+}
+#buttonGet {
+  border: 0.5px solid rgba(83, 83, 83, 0.39);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  max-width: 100%;
+  min-width: 80px;
+  text-wrap: nowrap;
+  color: gray;
+}
+#buttonGet:hover {
+  color: white;
+  background-color: rgb(83, 83, 83);
+}
