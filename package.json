@@ -1,0 +1,19 @@
+{
+  "name": "e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js",
+    "start:dev": "nodemon script.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.1",
+    "nodemon": "^3.1.9"
+  }
+}
