@@ -28,11 +28,17 @@ app.get("/todos", async (req, res) => {
 
 app.delete("/todos/:id", (req, res) => {
   const id = req.params.id;
-  TodoModel.deleteOne({ _id: id }).then((response) => {
-    if (response.deleteCount === 0) {
-      res.send({ message: "not found" });
-    }
-  });
+  TodoModel.deleteOne({ _id: id })
+    .then((response) => {
+      if (response.deleteCount === 0) {
+        res.status(404).send({ message: "not found" });
+      } else {
+        res.send({ message: "Todo deleted" });
+      }
+    })
+    .catch((error) => {
+      res.send({ message: "server error", error });
+    });
 });
 
 app.put("/todos/:id", (req, res) => {
