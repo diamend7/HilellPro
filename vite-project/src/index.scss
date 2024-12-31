@@ -1,0 +1,59 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.blackTheme {
+  background-color: rgb(39, 39, 39);
+  color: white;
+  height: 100vh;
+
+  .header {
+    background-color: rgb(34, 34, 34);
+    border-bottom: 2px solid rgb(146, 146, 146);
+  }
+
+  .link {
+    color: orange;
+  }
+}
+
+.header {
+  padding: 10px;
+  border-bottom: 2px solid black;
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 225, 225);
+
+  .header_links {
+    margin-left: 20px;
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+    .link {
+      text-decoration: none;
+    }
+  }
+}
+
+.main {
+  margin-left: 15px;
+  margin-right: 15px;
+  #todolist_ul {
+    margin-top: 25px;
+    max-width: 400px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 25px;
+    li {
+      list-style: none;
+      margin: 8px 8px;
+    }
+  }
+  .deletebutton {
+    margin-left: 10px;
+  }
+}
