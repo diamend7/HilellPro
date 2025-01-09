@@ -1,11 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
 import "./index.css";
+import { store } from "./redux/store.js";
+import Counter from "./component/TodoApp/Counter.jsx";
 import App from "./App.jsx";
 import TodoApp from "./component/TodoApp/TodoApp.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <TodoApp />
-  </StrictMode>
+  <Provider store={store}>
+    <StrictMode>
+      <Counter />
+      <TodoApp />
+    </StrictMode>
+  </Provider>
 );

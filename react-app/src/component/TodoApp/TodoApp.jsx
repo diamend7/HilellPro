@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
+import { todoSlice } from "../../redux/slices/todoSlice";
+import selectors from "../../redux/slices/selectors";
 
 const TodoApp = () => {
-  const [todos, setTodos] = useState([]);
+  const dispatch = useDispatch();
+  const todos = useSelector(selectors.todoList.todos);
 
   const validationSchema = Yup.object({
     task: Yup.string()
@@ -12,7 +16,7 @@ const TodoApp = () => {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    setTodos([...todos, values.task]);
+    dispatch(todoSlice.actions.addTodo(values.task));
     resetForm();
   };
 
@@ -47,8 +51,8 @@ const TodoApp = () => {
       </Formik>
 
       <ul style={{ marginTop: "20px" }}>
-        {todos.map((todo, index) => (
-          <li key={index}>{todo}</li>
+        {todos.map((todo) => (
+          <li key={todo.id}>{todo.task}</li>
         ))}
       </ul>
     </div>
