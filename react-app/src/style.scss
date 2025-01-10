@@ -1,0 +1,44 @@
+.inputDiv {
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+  max-height: 32px;
+
+  align-items: baseline;
+
+  border: 0.5px solid rgba(170, 170, 170, 0.521);
+  border-radius: 5px;
+  #link {
+    height: 32px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #input {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    background-color: white;
+    color: black;
+
+    border: none;
+    border-left: 1px solid rgba(170, 170, 170, 0.521);
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    height: 30px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+.jsonInfo {
+  border: 1px rgba(128, 128, 128, 0.445) solid;
+  border-radius: 5px;
+  min-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
