@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { todoSlice } from "../../redux/slices/todoSlice";
+import { todoSlice, fetchStart } from "../../redux/slices/todoSlice";
 import selectors from "../../redux/slices/selectors";
 
 const TodoApp = () => {
   const dispatch = useDispatch();
   const todos = useSelector(selectors.todoList.todos);
+  const [editingTodoId, setEditingTodoId] = useState(null);
+  const [newTask, setNewTask] = useState("");
+
+  useEffect(() => {
+    dispatch(fetchStart());
+  }, []);
 
   const validationSchema = Yup.object({
     task: Yup.string()
@@ -16,8 +22,35 @@ const TodoApp = () => {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(todoSlice.actions.addTodo(values.task));
+    dispatch(todoSlice.actions.addTodoStart(values.task));
+
     resetForm();
+  };
+
+  const handleRemove = (id) => {
+    dispatch(todoSlice.actions.deleteTodoStart(id));
+  };
+
+  const handleCheckBox = (id, completed) => {
+    dispatch(todoSlice.actions.checkBoxStart({ id, completed }));
+  };
+
+  const handleEdit = (todo) => {
+    setEditingTodoId(todo.id);
+    setNewTask(todo.task);
+  };
+
+  const handleUpdate = () => {
+    if (editingTodoId) {
+      dispatch(
+        todoSlice.actions.updateTodoStart({
+          id: editingTodoId,
+          task: newTask,
+        })
+      );
+      setEditingTodoId(null);
+      setNewTask("");
+    }
   };
 
   return (
@@ -52,7 +85,32 @@ const TodoApp = () => {
 
       <ul style={{ marginTop: "20px" }}>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.task}</li>
+          <div key={todo.id} style={{ display: "flex" }}>
+            <li>{todo.task}</li>
+            <button
+              type="button"
+              className="deleteButton"
+              onClick={() => handleRemove(todo.id)}
+            >
+              Delete
+            </button>
+            <input
+              type="checkbox"
+              checked={todo.completed || false}
+              onChange={() => handleCheckBox(todo.id, !todo.completed)}
+            ></input>
+            <button onClick={() => handleEdit(todo)}>Change</button>
+            {editingTodoId === todo.id && (
+              <div>
+                <input
+                  type="text"
+                  value={newTask}
+                  onChange={(e) => setNewTask(e.target.value)}
+                />
+                <button onClick={handleUpdate}>Confirm</button>
+              </div>
+            )}
+          </div>
         ))}
       </ul>
     </div>

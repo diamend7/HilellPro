@@ -1,10 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { counter } from "./slices/counter";
+import createSagaMiddleware from "redux-saga";
 import { todoSlice } from "./slices/todoSlice";
+import rootSaga from "./saga";
+
+const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
-    counter: counter.reducer,
     todos: todoSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
 });
+
+sagaMiddleware.run(rootSaga);
