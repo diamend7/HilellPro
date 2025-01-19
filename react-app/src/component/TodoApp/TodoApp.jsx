@@ -1,58 +1,60 @@
 import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import { todoSlice } from "../../redux/slices/todoSlice";
-import selectors from "../../redux/slices/selectors";
 
 const TodoApp = () => {
-  const dispatch = useDispatch();
-  const todos = useSelector(selectors.todoList.todos);
+  const [task, setTask] = useState("");
+  const [todos, setTodos] = useState([]);
 
-  const validationSchema = Yup.object({
-    task: Yup.string()
-      .min(5, "Мінімальна довжина 5 символів")
-      .required("Поле обов’язкове"),
-  });
-
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(todoSlice.actions.addTodo(values.task));
-    resetForm();
+  const handleAddTodo = () => {
+    if (task.trim() === "") {
+      return;
+    } else {
+      const newTodo = { id: Date.now(), task };
+      setTodos([...todos, newTodo]);
+      setTask("");
+    }
   };
 
   return (
-    <div>
+    <div style={{ maxWidth: "400px", margin: "0 auto", textAlign: "center" }}>
       <h1>TODO List</h1>
-      <Formik
-        initialValues={{ task: "" }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
+      <div style={{ marginBottom: "10px" }}>
+        <input
+          type="text"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="Введіть задачу"
+          style={{
+            padding: "10px",
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        />
+      </div>
+      <button
+        onClick={handleAddTodo}
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "#007BFF",
+          color: "white",
+          border: "none",
+          cursor: "pointer",
+        }}
       >
-        <Form>
-          <div style={{ marginBottom: "10px" }}>
-            <Field
-              type="text"
-              name="task"
-              placeholder="Введіть задачу"
-              style={{
-                padding: "10px",
-                width: "100%",
-              }}
-            />
-            <ErrorMessage
-              name="task"
-              component="div"
-              style={{ color: "red" }}
-            />
-          </div>
+        Додати задачу
+      </button>
 
-          <button type="submit">Додати задачу</button>
-        </Form>
-      </Formik>
-
-      <ul style={{ marginTop: "20px" }}>
+      <ul style={{ marginTop: "20px", listStyle: "none", padding: "0" }}>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.task}</li>
+          <li
+            key={todo.id}
+            style={{
+              padding: "10px",
+              borderBottom: "1px solid #ccc",
+              textAlign: "left",
+            }}
+          >
+            {todo.task}
+          </li>
         ))}
       </ul>
     </div>
